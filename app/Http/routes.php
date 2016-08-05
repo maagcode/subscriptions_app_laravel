@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// authentication routes
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Group to route under Auth middleware
+Route::group(['middleware' => 'auth'], function ()
+{
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/plans', 'PlanController@index')->name('plans.index');
+});
