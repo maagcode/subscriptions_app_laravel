@@ -30,4 +30,9 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/braintree/token', 'BraintreeTokenController@token')->name('braintree.token');
 
     Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
+
+    Route::group(['middleware' => 'subscribed'], function ()
+    {
+        Route::get('/services', 'ServiceController@index')->name('services.index');
+    });
 });

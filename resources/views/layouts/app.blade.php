@@ -49,6 +49,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('plans.index') }}">Plans</a></li>
+                    <li><a href="{{ route('services.index') }}">Services</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -81,6 +82,6 @@
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
     @yield('scripts')
-    
+
 </body>
 </html>
