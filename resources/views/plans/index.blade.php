@@ -18,7 +18,7 @@
                                     <p>{{ $plan->description }}</p>
                                 </div>
 
-                                <a href="#" class="btn btn-primary pull-right">Join</a>
+                                <a href="{{ route('plans.show', $plan->slug) }}" class="btn btn-primary pull-right">Join</a>
 
                             </li>
                         @endforeach

@@ -14,4 +14,10 @@ class Plan extends Model
         'cost',
         'description',
     ];
+
+    // Method used to route to the 'slug' instead of the 'id'
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
