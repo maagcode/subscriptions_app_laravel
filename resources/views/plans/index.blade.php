@@ -18,7 +18,9 @@
                                     <p>{{ $plan->description }}</p>
                                 </div>
 
-                                <a href="{{ route('plans.show', $plan->slug) }}" class="btn btn-primary pull-right">Join</a>
+                                @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
+                                    <a href="{{ route('plans.show', $plan->slug) }}" class="btn btn-primary pull-right">Join</a>
+                                @endif
 
                             </li>
                         @endforeach

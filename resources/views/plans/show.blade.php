@@ -8,14 +8,14 @@
                 <div class="panel-heading">Plan</div>
 
                 <div class="panel-body">
-                    <form action="" method="post">
+                    <form action="{{ route('subscription.create') }}" method="post">
                         <div id="dropin-container"></div>
                             <br>
                         <button type="submit" id="pay-button" class="btn btn-primary hidden">Submit Payment</button>
 
                         <input type="hidden" name="plan" value="{{ $plan->id }}">
                         {{ csrf_field() }}
-                        
+
                     </form>
                 </div>
             </div>

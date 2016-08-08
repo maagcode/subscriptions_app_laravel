@@ -28,4 +28,6 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/plan/{plan}', 'PlanController@show')->name('plans.show');
 
     Route::get('/braintree/token', 'BraintreeTokenController@token')->name('braintree.token');
+
+    Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
 });
