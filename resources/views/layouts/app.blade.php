@@ -65,6 +65,11 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+
+                                @if (Auth::user()->subscribed('main'))
+                                    <li><a href="{{ route('subscription.index') }}"><i class="fa fa-btn fa-sign-out"></i>Manage Subscription</a></li>
+                                @endif
+
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

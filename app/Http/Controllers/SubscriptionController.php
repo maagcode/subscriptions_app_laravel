@@ -10,6 +10,11 @@ use App\Plan;
 
 class SubscriptionController extends Controller
 {
+    public function index()
+    {
+        return view('subscription.index');
+    }
+
     public function create(Request $request)
     {
         $plan = Plan::findOrFail($request->plan);
@@ -36,5 +41,19 @@ class SubscriptionController extends Controller
 
 
         return redirect()->route('home');
+    }
+
+    public function cancel(Request $request)
+    {
+        $request->user()->subscription('main')-cancel();
+
+        return redirect()->route('subscription.index');
+    }
+
+    public function resume(Request $request)
+    {
+        $request->user()->subscription('main')->resume();
+
+        return redirect()->route('subscription.index');
     }
 }

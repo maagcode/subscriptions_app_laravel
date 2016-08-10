@@ -34,5 +34,11 @@ Route::group(['middleware' => 'auth'], function ()
     Route::group(['middleware' => 'subscribed'], function ()
     {
         Route::get('/services', 'ServiceController@index')->name('services.index');
+
+        Route::get('/subscription', 'SubscriptionController@index')->name('subscription.index');
+
+        Route::post('/subscription/cancel', 'SubscriptionController@cancel')->name('subscription.cancel');
+
+        Route::post('/subscription/resume', 'SubscriptionController@resume')->name('subscription.resume');
     });
 });
