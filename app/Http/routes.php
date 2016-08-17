@@ -41,4 +41,11 @@ Route::group(['middleware' => 'auth'], function ()
 
         Route::post('/subscription/resume', 'SubscriptionController@resume')->name('subscription.resume');
     });
+
+    Route::group(['middleware' => 'client'], function ()
+    {
+        Route::get('/invoices', 'InvoiceController@index')->name('invoices.index');
+
+        Route::get('/invoices/{invoiceID}', 'InvoiceController@show')->name('invoices.show');
+    });
 });

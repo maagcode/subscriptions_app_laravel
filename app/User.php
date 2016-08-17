@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function hasBeenClient()
+    {
+        return $this->braintree_id !== null;
+    }
 }

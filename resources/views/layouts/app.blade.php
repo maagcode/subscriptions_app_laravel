@@ -67,7 +67,11 @@
                             <ul class="dropdown-menu" role="menu">
 
                                 @if (Auth::user()->subscribed('main'))
-                                    <li><a href="{{ route('subscription.index') }}"><i class="fa fa-btn fa-sign-out"></i>Manage Subscription</a></li>
+                                    <li><a href="{{ route('subscription.index') }}"><i class="fa fa-btn fa-check"></i>Manage Subscription</a></li>
+                                @endif
+
+                                @if (Auth::user()->hasBeenClient())
+                                    <li><a href="{{ route('invoices.index') }}"><i class="fa fa-btn fa-edit"></i>Invoices</a></li>
                                 @endif
 
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
