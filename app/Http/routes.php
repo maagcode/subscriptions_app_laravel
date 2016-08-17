@@ -49,3 +49,5 @@ Route::group(['middleware' => 'auth'], function ()
         Route::get('/invoices/{invoiceID}', 'InvoiceController@show')->name('invoices.show');
     });
 });
+
+Route::post('/webhook/braintree', 'BraintreeWebhookController@handleWebhook');
